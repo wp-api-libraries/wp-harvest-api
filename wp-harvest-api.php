@@ -1,6 +1,6 @@
 <?php
 /**
-* WP Harvest API
+* WP Harvest API (http://help.getharvest.com/api/)
 *
 * @package WP-Harvest-API
 */
