@@ -8,11 +8,16 @@
 /* Exit if accessed directly */
 if ( ! defined( 'ABSPATH' ) ) { exit; }
 
-/**
- * Harvest API Class.
- */
-class HarvestAPI {
+
+if( ! class_exists( 'HarvestAPI' ) ) {
+
+	/**
+	* Harvest API Class.
+ 	*/
+ 	class HarvestAPI {
 
 
+
+	}
 
 }
