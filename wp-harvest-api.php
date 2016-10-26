@@ -5,6 +5,17 @@
 * @package WP-Harvest-API
 */
 
+/*
+* Plugin Name: WP Uptime Robot API
+* Plugin URI: https://github.com/wp-api-libraries/wp-harvest-api
+* Description: Perform API requests to Uptime Robot in WordPress.
+* Author: WP API Libraries
+* Version: 1.0.0
+* Author URI: https://wp-api-libraries.com
+* GitHub Plugin URI: https://github.com/wp-api-libraries/wp-harvest-api
+* GitHub Branch: master
+*/
+
 /* Exit if accessed directly. */
 if ( ! defined( 'ABSPATH' ) ) { exit; }
 
