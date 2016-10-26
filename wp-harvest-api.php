@@ -6,9 +6,9 @@
 */
 
 /*
-* Plugin Name: WP Uptime Robot API
+* Plugin Name: WP Harvest API
 * Plugin URI: https://github.com/wp-api-libraries/wp-harvest-api
-* Description: Perform API requests to Uptime Robot in WordPress.
+* Description: Perform API requests to Harvest in WordPress.
 * Author: WP API Libraries
 * Version: 1.0.0
 * Author URI: https://wp-api-libraries.com
