@@ -118,7 +118,8 @@ if ( ! class_exists( 'HarvestAPI' ) ) {
 		 */
 		public function get_rate_limit_status() {
 
-			// /account/rate_limit_status
+			$request = $this->base_uri . '/account/rate_limit_status?output=' . static::$output;
+			return $this->fetch( $request );
 		}
 
 
@@ -160,6 +161,9 @@ if ( ! class_exists( 'HarvestAPI' ) ) {
 		 * @return void
 		 */
 		public function create_client( $name, $currency, $curreny_symbol, $active, $details, $highrise_id ) {
+
+  		$request = $this->base_uri . '/clients?name='. $name .'&active='.$active.'&currency='.$currency.'&currency_symbol='.$curreny_symbol.'&detail='.$details.'&highrise_id='.$highrise_id .'output='. static::$output;
+			return $this->fetch( $request );
 		}
 
 		/**
@@ -175,6 +179,10 @@ if ( ! class_exists( 'HarvestAPI' ) ) {
 		 * @return void
 		 */
 		public function update_client( $name, $currency, $curreny_symbol, $active, $details, $highrise_id ) {
+
+  		$request = $this->base_uri . '/clients?name='. $name .'&active='.$active.'&currency='.$currency.'&currency_symbol='.$curreny_symbol.'&detail='.$details.'&highrise_id='.$highrise_id .'output='. static::$output;
+			return $this->fetch( $request );
+
 		}
 
 		/**
@@ -186,6 +194,9 @@ if ( ! class_exists( 'HarvestAPI' ) ) {
 		 */
 		public function toggle_client( $client_id ) {
 
+  		$request = $this->base_uri . '/clients/'.$client_id.'/toggle?output='. static::$output;
+			return $this->fetch( $request );
+
 		}
 
 		/**
@@ -196,6 +207,8 @@ if ( ! class_exists( 'HarvestAPI' ) ) {
 		 * @return void
 		 */
 		public function delete_client( $client_id ) {
+  			$request = $this->base_uri . '/clients/'.$client_id.'?output='. static::$output;
+			return $this->fetch( $request );
 		}
 
 		/**
@@ -206,6 +219,9 @@ if ( ! class_exists( 'HarvestAPI' ) ) {
 		 * @return void
 		 */
 		public function get_all_contacts( $updated_since = '' ) {
+
+  		$request = $this->base_uri . '/contacts?output='. static::$output;
+			return $this->fetch( $request );
 		}
 
 		/**
@@ -217,6 +233,9 @@ if ( ! class_exists( 'HarvestAPI' ) ) {
 		 * @return void
 		 */
 		public function get_all_client_contacts( $client_id, $updated_since = '' ) {
+
+  			$request = $this->base_uri . '/clients/contacts?output='. static::$output;
+			return $this->fetch( $request );
 		}
 
 		/**
@@ -227,6 +246,9 @@ if ( ! class_exists( 'HarvestAPI' ) ) {
 		 * @return void
 		 */
 		public function get_client_contact( $contact_id ) {
+
+  		$request = $this->base_uri . '/contacts/'.$contact_id.'?output='. static::$output;
+			return $this->fetch( $request );
 
 		}
 
@@ -241,6 +263,9 @@ if ( ! class_exists( 'HarvestAPI' ) ) {
 		 */
 		public function add_contact( $client_id, $first_name, $last_name ) {
 
+  		$request = $this->base_uri . '/contacts/'.$contact_id.'?output='. static::$output;
+			return $this->fetch( $request );
+
 		}
 
 		/**
@@ -254,6 +279,9 @@ if ( ! class_exists( 'HarvestAPI' ) ) {
 		 */
 		public function update_contact( $client_id, $first_name, $last_name ) {
 
+    $request = $this->base_uri . '/contacts/'.$contact_id.'?output='. static::$output;
+			return $this->fetch( $request );
+
 		}
 
 		/**
@@ -264,6 +292,9 @@ if ( ! class_exists( 'HarvestAPI' ) ) {
 		 * @return void
 		 */
 		public function delete_contact( $contact_id ) {
+
+  		$request = $this->base_uri . '/contacts/'.$contact_id.'?output='. static::$output;
+			return $this->fetch( $request );
 
 		}
 
@@ -487,6 +518,8 @@ if ( ! class_exists( 'HarvestAPI' ) ) {
 		 * @return void
 		 */
 		public function create_project( $name, $active, $bill_by, $client_id ) {
+  		 $request = $this->base_uri . '/projects?output='. static::$output;
+			return $this->fetch( $request );
 		}
 
 		/**
@@ -497,6 +530,8 @@ if ( ! class_exists( 'HarvestAPI' ) ) {
 		 * @return void
 		 */
 		public function update_project( $project_id ) {
+  		$request = $this->base_uri . '/projects/'.$project_id.'?output='. static::$output;
+			return $this->fetch( $request );
 		}
 
 		/**
@@ -507,6 +542,8 @@ if ( ! class_exists( 'HarvestAPI' ) ) {
 		 * @return void
 		 */
 		public function toggle_project( $project_id ) {
+  		$request = $this->base_uri . '/projects/'.$project_id.'/toggle?output='. static::$output;
+			return $this->fetch( $request );
 		}
 
 		/**
@@ -517,6 +554,8 @@ if ( ! class_exists( 'HarvestAPI' ) ) {
 		 * @return void
 		 */
 		public function delete_project( $project_id ) {
+  		$request = $this->base_uri . '/projects/'.$project_id.'?output='. static::$output;
+			return $this->fetch( $request );
 		}
 
 		/* REPORTS. */
@@ -561,7 +600,8 @@ if ( ! class_exists( 'HarvestAPI' ) ) {
 		 * @return void
 		 */
 		public function get_all_tasks( $updated_since = '' ) {
-
+      $request = $this->base_uri . '/tasks/?output='. static::$output;
+			return $this->fetch( $request );
 		}
 
 		/**
@@ -572,7 +612,8 @@ if ( ! class_exists( 'HarvestAPI' ) ) {
 		 * @return void
 		 */
 		public function get_task( $task_id ) {
-
+      $request = $this->base_uri . '/tasks/'.$task_id.'?output='. static::$output;
+			return $this->fetch( $request );
 		}
 
 		/**
@@ -582,7 +623,8 @@ if ( ! class_exists( 'HarvestAPI' ) ) {
 		 * @return void
 		 */
 		public function add_task() {
-
+      $request = $this->base_uri . '/tasks/?output='. static::$output;
+			return $this->fetch( $request );
 		}
 
 		/**
@@ -593,7 +635,8 @@ if ( ! class_exists( 'HarvestAPI' ) ) {
 		 * @return void
 		 */
 		public function archive_delete_task( $task_id ) {
-
+      $request = $this->base_uri . '/tasks/'.$task_id.'?output='. static::$output;
+			return $this->fetch( $request );
 		}
 
 		/**
@@ -604,7 +647,8 @@ if ( ! class_exists( 'HarvestAPI' ) ) {
 		 * @return void
 		 */
 		public function update_task( $task_id ) {
-
+      $request = $this->base_uri . '/tasks/'.$task_id.'?output='. static::$output;
+			return $this->fetch( $request );
 		}
 
 		/**
@@ -615,6 +659,9 @@ if ( ! class_exists( 'HarvestAPI' ) ) {
 		 * @return void
 		 */
 		public function reactivate_task( $task_id ) {
+
+  		$request = $this->base_uri . '/tasks/'.$task_id.'/activate?output='. static::$output;
+			return $this->fetch( $request );
 
 		}
 
@@ -627,7 +674,8 @@ if ( ! class_exists( 'HarvestAPI' ) ) {
 		 * @return void
 		 */
 		public function get_all_users() {
-
+      $request = $this->base_uri . '/people?output='. static::$output;
+			return $this->fetch( $request );
 		}
 
 		/**
@@ -649,6 +697,9 @@ if ( ! class_exists( 'HarvestAPI' ) ) {
 		 * @return void
 		 */
 		public function add_user( $email, $first_name, $last_name, $is_admin = '', $timezone, $is_contractor, $telephone, $is_active, $has_access_to_all_future_projects, $default_hourly_rate, $department, $cost_rate ) {
+
+  		$request = $this->base_uri . '/people?output='. static::$output;
+			return $this->fetch( $request );
 
 		}
 
@@ -672,26 +723,37 @@ if ( ! class_exists( 'HarvestAPI' ) ) {
 		 */
 		public function update_user( $email, $first_name, $last_name, $is_admin = '', $timezone, $is_contractor, $telephone, $is_active, $has_access_to_all_future_projects, $default_hourly_rate, $department, $cost_rate ) {
 
+  		$request = $this->base_uri . '/people/'.$user_id.'?output='. static::$output;
+			return $this->fetch( $request );
+
 		}
 
+
 		/**
-		 * delete_user function.
+		 * Delete A User.
 		 *
 		 * @access public
+		 * @param mixed $user_id
 		 * @return void
 		 */
-		public function delete_user() {
+		public function delete_user( $user_id ) {
+
+  		$request = $this->base_uri . '/people/'.$user_id.'?output='. static::$output;
+			return $this->fetch( $request );
 
 		}
 
 		/**
-		 * toggle_user function.
+		 * Toggle An Existing User.
 		 *
 		 * @access public
 		 * @param mixed $user_id
 		 * @return void
 		 */
 		public function toggle_user( $user_id ) {
+
+  		$request = $this->base_uri . '/people/'.$user_id.'/toggle?output='. static::$output;
+			return $this->fetch( $request );
 
 		}
 
