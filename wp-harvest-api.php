@@ -329,6 +329,9 @@ if ( ! class_exists( 'HarvestAPI' ) ) {
 		 */
 		public function add_invoice( $due_at_human_format, $client_id, $currency, $discount, $issued_at, $subject, $notes, $number, $kind, $projects_to_invoice, $import_hours, $import_expenses, $expense_summary_type, $period_start, $period_end, $expense_period_start, $expense_period_end, $csv_line_items, $tax, $tax2, $purchase_order ) {
 
+  		$request = $this->base_uri . '/invoices?output='. static::$output;
+			return $this->fetch( $request );
+
 		}
 
 		/* EXPENSES. */
@@ -342,7 +345,8 @@ if ( ! class_exists( 'HarvestAPI' ) ) {
 		 * @return void
 		 */
 		public function get_expense( $expense_id, $of_user = '' ) {
-
+  		$request = $this->base_uri . '/expenses?output='. static::$output;
+			return $this->fetch( $request );
 		}
 
 		/**
@@ -353,7 +357,8 @@ if ( ! class_exists( 'HarvestAPI' ) ) {
 		 * @return void
 		 */
 		public function delete_expense( $expense_id ) {
-
+  		$request = $this->base_uri . '/expenses/'.$expense_id.'?output='. static::$output;
+			return $this->fetch( $request );
 		}
 
 		/**
@@ -364,7 +369,8 @@ if ( ! class_exists( 'HarvestAPI' ) ) {
 		 * @return void
 		 */
 		public function attach_receipt_image_to_expense( $expense_id ) {
-
+      $request = $this->base_uri . '/expenses/'.$expense_id.'/receipt?output='. static::$output;
+			return $this->fetch( $request );
 		}
 
 		/**
@@ -375,7 +381,8 @@ if ( ! class_exists( 'HarvestAPI' ) ) {
 		 * @return void
 		 */
 		public function get_receipt_image_from_expense( $expense_id ) {
-
+      $request = $this->base_uri . '/expenses/'.$expense_id.'/receipt?output='. static::$output;
+			return $this->fetch( $request );
 		}
 
 		/**
