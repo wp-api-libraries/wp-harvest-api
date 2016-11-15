@@ -2,6 +2,6 @@
 
 A WordPress php library for interacting with the [Harvest API](http://help.getharvest.com/api/). 
 
-[![Code Climate](https://codeclimate.com/repos/57bcc4323e3a3b76ba000bc4/badges/d67a9614801265a3bcca/gpa.svg)](https://codeclimate.com/repos/57bcc4323e3a3b76ba000bc4/feed)
-[![Test Coverage](https://codeclimate.com/repos/57bcc4323e3a3b76ba000bc4/badges/d67a9614801265a3bcca/coverage.svg)](https://codeclimate.com/repos/57bcc4323e3a3b76ba000bc4/coverage)
-[![Issue Count](https://codeclimate.com/repos/57bcc4323e3a3b76ba000bc4/badges/d67a9614801265a3bcca/issue_count.svg)](https://codeclimate.com/repos/57bcc4323e3a3b76ba000bc4/feed)
+[![Code Climate](https://codeclimate.com/github/wp-api-libraries/wp-harvest-api/badges/gpa.svg)](https://codeclimate.com/github/wp-api-libraries/wp-harvest-api)
+[![Test Coverage](https://codeclimate.com/github/wp-api-libraries/wp-harvest-api/badges/coverage.svg)](https://codeclimate.com/github/wp-api-libraries/wp-harvest-api/coverage)
+[![Issue Count](https://codeclimate.com/github/wp-api-libraries/wp-harvest-api/badges/issue_count.svg)](https://codeclimate.com/github/wp-api-libraries/wp-harvest-api)
