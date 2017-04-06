@@ -601,7 +601,7 @@ if ( ! class_exists( 'HarvestAPI' ) ) {
 		/* TASKS. */
 
 		/**
-		 * get_all_tasks function.
+		 * Get all Tasks.
 		 *
 		 * @access public
 		 * @param string $updated_since (default: '')
