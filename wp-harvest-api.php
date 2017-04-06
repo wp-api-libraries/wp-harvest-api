@@ -613,10 +613,10 @@ if ( ! class_exists( 'HarvestAPI' ) ) {
 		}
 
 		/**
-		 * get_task function.
+		 * Get Task.
 		 *
 		 * @access public
-		 * @param mixed $task_id
+		 * @param mixed $task_id Task ID.
 		 * @return void
 		 */
 		public function get_task( $task_id ) {
@@ -625,7 +625,7 @@ if ( ! class_exists( 'HarvestAPI' ) ) {
 		}
 
 		/**
-		 * add_task function.
+		 * Add Task.
 		 *
 		 * @access public
 		 * @return void
@@ -636,10 +636,10 @@ if ( ! class_exists( 'HarvestAPI' ) ) {
 		}
 
 		/**
-		 * archive_delete_task function.
+		 * Archive Delete Task.
 		 *
 		 * @access public
-		 * @param mixed $task_id
+		 * @param mixed $task_id Task ID.
 		 * @return void
 		 */
 		public function archive_delete_task( $task_id ) {
@@ -648,10 +648,10 @@ if ( ! class_exists( 'HarvestAPI' ) ) {
 		}
 
 		/**
-		 * update_task function.
+		 * Update Task.
 		 *
 		 * @access public
-		 * @param mixed $task_id
+		 * @param mixed $task_id Task ID.
 		 * @return void
 		 */
 		public function update_task( $task_id ) {
@@ -660,10 +660,10 @@ if ( ! class_exists( 'HarvestAPI' ) ) {
 		}
 
 		/**
-		 * reactivate_task function.
+		 * Reactivate Task.
 		 *
 		 * @access public
-		 * @param mixed $task_id
+		 * @param mixed $task_id Task ID.
 		 * @return void
 		 */
 		public function reactivate_task( $task_id ) {
@@ -676,7 +676,7 @@ if ( ! class_exists( 'HarvestAPI' ) ) {
 		/* USERS. */
 
 		/**
-		 * get_all_users function.
+		 * Get All Users.
 		 *
 		 * @access public
 		 * @return void
@@ -687,21 +687,21 @@ if ( ! class_exists( 'HarvestAPI' ) ) {
 		}
 
 		/**
-		 * add_user function.
+		 * Add User.
 		 *
 		 * @access public
-		 * @param mixed $email
-		 * @param mixed $first_name
-		 * @param mixed $last_name
-		 * @param string $is_admin (default: '')
-		 * @param mixed $timezone
-		 * @param mixed $is_contractor
-		 * @param mixed $telephone
-		 * @param mixed $is_active
-		 * @param mixed $has_access_to_all_future_projects
-		 * @param mixed $default_hourly_rate
-		 * @param mixed $department
-		 * @param mixed $cost_rate
+		 * @param mixed $email Email.
+		 * @param mixed $first_name First Name.
+		 * @param mixed $last_name Last Name.
+		 * @param string $is_admin (default: '') Is Admin.
+		 * @param mixed $timezone TimeZone.
+		 * @param mixed $is_contractor Is Contractor.
+		 * @param mixed $telephone Telephone.
+		 * @param mixed $is_active Is Active.
+		 * @param mixed $has_access_to_all_future_projects Has access to all future Projects.
+		 * @param mixed $default_hourly_rate Default Hourly Rate.
+		 * @param mixed $department Department.
+		 * @param mixed $cost_rate Cost Rate.
 		 * @return void
 		 */
 		public function add_user( $email, $first_name, $last_name, $is_admin = '', $timezone, $is_contractor, $telephone, $is_active, $has_access_to_all_future_projects, $default_hourly_rate, $department, $cost_rate ) {
@@ -712,21 +712,21 @@ if ( ! class_exists( 'HarvestAPI' ) ) {
 		}
 
 		/**
-		 * update_user function.
+		 * Update User.
 		 *
 		 * @access public
-		 * @param mixed $email
-		 * @param mixed $first_name
-		 * @param mixed $last_name
-		 * @param string $is_admin (default: '')
-		 * @param mixed $timezone
-		 * @param mixed $is_contractor
-		 * @param mixed $telephone
-		 * @param mixed $is_active
-		 * @param mixed $has_access_to_all_future_projects
-		 * @param mixed $default_hourly_rate
-		 * @param mixed $department
-		 * @param mixed $cost_rate
+		 * @param mixed $email Email.
+		 * @param mixed $first_name First Name.
+		 * @param mixed $last_name Last Name.
+		 * @param string $is_admin (default: '') Is Admin.
+		 * @param mixed $timezone TimeZone.
+		 * @param mixed $is_contractor Is Contractor.
+		 * @param mixed $telephone Telephone.
+		 * @param mixed $is_active Is Active.
+		 * @param mixed $has_access_to_all_future_projects Has access to all future Projects.
+		 * @param mixed $default_hourly_rate Default Hourly Rate.
+		 * @param mixed $department Department.
+		 * @param mixed $cost_rate Cost Rate.
 		 * @return void
 		 */
 		public function update_user( $email, $first_name, $last_name, $is_admin = '', $timezone, $is_contractor, $telephone, $is_active, $has_access_to_all_future_projects, $default_hourly_rate, $department, $cost_rate ) {
@@ -741,7 +741,7 @@ if ( ! class_exists( 'HarvestAPI' ) ) {
 		 * Delete A User.
 		 *
 		 * @access public
-		 * @param mixed $user_id
+		 * @param mixed $user_id User ID.
 		 * @return void
 		 */
 		public function delete_user( $user_id ) {
@@ -755,7 +755,7 @@ if ( ! class_exists( 'HarvestAPI' ) ) {
 		 * Toggle An Existing User.
 		 *
 		 * @access public
-		 * @param mixed $user_id
+		 * @param mixed $user_id User ID.
 		 * @return void
 		 */
 		public function toggle_user( $user_id ) {
