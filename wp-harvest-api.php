@@ -13,6 +13,7 @@
 * Author URI: https://wp-api-libraries.com
 * GitHub Plugin URI: https://github.com/wp-api-libraries/wp-harvest-api
 * GitHub Branch: master
+* Text Domain: wp-harvest-api
 */
 /* Exit if accessed directly. */
 if ( ! defined( 'ABSPATH' ) ) { exit; }
@@ -91,7 +92,7 @@ if ( ! class_exists( 'HarvestAPI' ) ) {
 
 			$code = wp_remote_retrieve_response_code($response );
 			if ( 200 !== $code ) {
-				return new WP_Error( 'response-error', sprintf( __( 'Server response code: %d', 'text-domain' ), $code ) );
+				return new WP_Error( 'response-error', sprintf( __( 'Server response code: %d', 'wp-harvest-api' ), $code ) );
 			}
 			$body = wp_remote_retrieve_body( $response );
 			return json_decode( $body );
@@ -111,7 +112,7 @@ if ( ! class_exists( 'HarvestAPI' ) ) {
 		}
 
 		/**
-		 * get_rate_limit_status function.
+		 * Get Rate Limit Status.
 		 *
 		 * @access public
 		 * @return void
@@ -126,7 +127,7 @@ if ( ! class_exists( 'HarvestAPI' ) ) {
 		/* CLIENTS. */
 
 		/**
-		 * get_all_clients function.
+		 * Get all Clients
 		 *
 		 * @access public
 		 * @return void
@@ -137,10 +138,10 @@ if ( ! class_exists( 'HarvestAPI' ) ) {
 		}
 
 		/**
-		 * get_client function.
+		 * Get Client.
 		 *
 		 * @access public
-		 * @param mixed $client_id
+		 * @param mixed $client_id Client ID.
 		 * @return void
 		 */
 		public function get_client( $client_id ) {
@@ -149,15 +150,15 @@ if ( ! class_exists( 'HarvestAPI' ) ) {
 		}
 
 		/**
-		 * create_client function.
+		 * Create Client.
 		 *
 		 * @access public
-		 * @param mixed $name
-		 * @param mixed $currency
-		 * @param mixed $curreny_symbol
-		 * @param mixed $active
-		 * @param mixed $details
-		 * @param mixed $highrise_id
+		 * @param mixed $name Name.
+		 * @param mixed $currency Currency.
+		 * @param mixed $curreny_symbol Currency Symbol.
+		 * @param mixed $active Active.
+		 * @param mixed $details Details.
+		 * @param mixed $highrise_id HighRise ID.
 		 * @return void
 		 */
 		public function create_client( $name, $currency, $curreny_symbol, $active, $details, $highrise_id ) {
@@ -167,15 +168,15 @@ if ( ! class_exists( 'HarvestAPI' ) ) {
 		}
 
 		/**
-		 * update_client function.
+		 * Update Client.
 		 *
 		 * @access public
-		 * @param mixed $name
-		 * @param mixed $currency
-		 * @param mixed $curreny_symbol
-		 * @param mixed $active
-		 * @param mixed $details
-		 * @param mixed $highrise_id
+		 * @param mixed $name Name.
+		 * @param mixed $currency Currency.
+		 * @param mixed $curreny_symbol Currency Symbol.
+		 * @param mixed $active Active.
+		 * @param mixed $details Details.
+		 * @param mixed $highrise_id HighRise ID.
 		 * @return void
 		 */
 		public function update_client( $name, $currency, $curreny_symbol, $active, $details, $highrise_id ) {
@@ -186,7 +187,7 @@ if ( ! class_exists( 'HarvestAPI' ) ) {
 		}
 
 		/**
-		 * toggle_client function.
+		 * Toggle Client.
 		 *
 		 * @access public
 		 * @param mixed $client_id
@@ -200,10 +201,10 @@ if ( ! class_exists( 'HarvestAPI' ) ) {
 		}
 
 		/**
-		 * delete_client function.
+		 * Delete Client.
 		 *
 		 * @access public
-		 * @param mixed $client_id
+		 * @param mixed $client_id Client ID.
 		 * @return void
 		 */
 		public function delete_client( $client_id ) {
@@ -215,7 +216,7 @@ if ( ! class_exists( 'HarvestAPI' ) ) {
 		 * Get All Contacts.
 		 *
 		 * @access public
-		 * @param string $updated_since (default: '')
+		 * @param string $updated_since (default: '') Updated Since.
 		 * @return void
 		 */
 		public function get_all_contacts( $updated_since = '' ) {
@@ -228,8 +229,8 @@ if ( ! class_exists( 'HarvestAPI' ) ) {
 		 * Get All Contacts For A Client.
 		 *
 		 * @access public
-		 * @param mixed $client_id
-		 * @param string $updated_since (default: '')
+		 * @param mixed $client_id Client ID.
+		 * @param string $updated_since (default: '') Updated Since.
 		 * @return void
 		 */
 		public function get_all_client_contacts( $client_id, $updated_since = '' ) {
@@ -239,10 +240,10 @@ if ( ! class_exists( 'HarvestAPI' ) ) {
 		}
 
 		/**
-		 * get_client_contact function.
+		 * Get Client Contact.
 		 *
 		 * @access public
-		 * @param mixed $contact_id
+		 * @param mixed $contact_id Contact ID.
 		 * @return void
 		 */
 		public function get_client_contact( $contact_id ) {
@@ -253,12 +254,12 @@ if ( ! class_exists( 'HarvestAPI' ) ) {
 		}
 
 		/**
-		 * add_contact function.
+		 * Add Contact.
 		 *
 		 * @access public
-		 * @param mixed $client_id
-		 * @param mixed $first_name
-		 * @param mixed $last_name
+		 * @param mixed $client_id Client ID.
+		 * @param mixed $first_name First Name.
+		 * @param mixed $last_name Last Name.
 		 * @return void
 		 */
 		public function add_contact( $client_id, $first_name, $last_name ) {
@@ -269,12 +270,12 @@ if ( ! class_exists( 'HarvestAPI' ) ) {
 		}
 
 		/**
-		 * update_contact function.
+		 * Update Contact.
 		 *
 		 * @access public
-		 * @param mixed $client_id
-		 * @param mixed $first_name
-		 * @param mixed $last_name
+		 * @param mixed $client_id Client ID.
+		 * @param mixed $first_name First Name.
+		 * @param mixed $last_name Last Name.
 		 * @return void
 		 */
 		public function update_contact( $client_id, $first_name, $last_name ) {
@@ -285,10 +286,10 @@ if ( ! class_exists( 'HarvestAPI' ) ) {
 		}
 
 		/**
-		 * delete_contact function.
+		 * Delete Contact.
 		 *
 		 * @access public
-		 * @param mixed $contact_id
+		 * @param mixed $contact_id Contact ID.
 		 * @return void
 		 */
 		public function delete_contact( $contact_id ) {
@@ -337,11 +338,11 @@ if ( ! class_exists( 'HarvestAPI' ) ) {
 		/* EXPENSES. */
 
 		/**
-		 * get_expense function.
+		 * Get Expense.
 		 *
 		 * @access public
-		 * @param mixed $expense_id
-		 * @param string $of_user (default: '')
+		 * @param mixed $expense_id Expense ID.
+		 * @param string $of_user (default: '') Of User.
 		 * @return void
 		 */
 		public function get_expense( $expense_id, $of_user = '' ) {
@@ -350,10 +351,10 @@ if ( ! class_exists( 'HarvestAPI' ) ) {
 		}
 
 		/**
-		 * delete_expense function.
+		 * Delete Expense.
 		 *
 		 * @access public
-		 * @param mixed $expense_id
+		 * @param mixed $expense_id Expense ID.
 		 * @return void
 		 */
 		public function delete_expense( $expense_id ) {
@@ -362,10 +363,10 @@ if ( ! class_exists( 'HarvestAPI' ) ) {
 		}
 
 		/**
-		 * attach_receipt_image_to_expense function.
+		 * Attach Receipt Image to Expense.
 		 *
 		 * @access public
-		 * @param mixed $expense_id
+		 * @param mixed $expense_id Expense ID.
 		 * @return void
 		 */
 		public function attach_receipt_image_to_expense( $expense_id ) {
@@ -374,10 +375,10 @@ if ( ! class_exists( 'HarvestAPI' ) ) {
 		}
 
 		/**
-		 * get_receipt_image_from_expense function.
+		 * Get Receipt Image from Expense.
 		 *
 		 * @access public
-		 * @param mixed $expense_id
+		 * @param mixed $expense_id Expense ID.
 		 * @return void
 		 */
 		public function get_receipt_image_from_expense( $expense_id ) {
@@ -386,16 +387,16 @@ if ( ! class_exists( 'HarvestAPI' ) ) {
 		}
 
 		/**
-		 * add_expense function.
+		 * Add Expense.
 		 *
 		 * @access public
-		 * @param mixed $notes
-		 * @param mixed $total_cost
-		 * @param mixed $project_id
-		 * @param mixed $expense_category_id
-		 * @param mixed $billable
-		 * @param mixed $spent_at
-		 * @param mixed $units
+		 * @param mixed $notes Notes.
+		 * @param mixed $total_cost Total Cost.
+		 * @param mixed $project_id Project ID.
+		 * @param mixed $expense_category_id Expense Category ID.
+		 * @param mixed $billable Billable.
+		 * @param mixed $spent_at Spent At.
+		 * @param mixed $units Units.
 		 * @return void
 		 */
 		public function add_expense( $notes, $total_cost, $project_id, $expense_category_id, $billable, $spent_at, $units ) {
@@ -403,16 +404,16 @@ if ( ! class_exists( 'HarvestAPI' ) ) {
 		}
 
 		/**
-		 * update_expense function.
+		 * Update Expense.
 		 *
 		 * @access public
-		 * @param mixed $notes
-		 * @param mixed $total_cost
-		 * @param mixed $project_id
-		 * @param mixed $expense_category_id
-		 * @param mixed $billable
-		 * @param mixed $spent_at
-		 * @param mixed $units
+		 * @param mixed $notes Notes.
+		 * @param mixed $total_cost Total Cost.
+		 * @param mixed $project_id Project ID.
+		 * @param mixed $expense_category_id Expense Category ID.
+		 * @param mixed $billable Billable.
+		 * @param mixed $spent_at Spent At.
+		 * @param mixed $units Units.
 		 * @return void
 		 */
 		public function update_expense( $notes, $total_cost, $project_id, $expense_category_id, $billable, $spent_at, $units ) {
