@@ -302,30 +302,30 @@ if ( ! class_exists( 'HarvestAPI' ) ) {
 		/* INVOICES & ESTIMATES. */
 
 		/**
-		 * add_invoice function.
+		 * Add Invoice.
 		 *
 		 * @access public
-		 * @param mixed $due_at_human_format
-		 * @param mixed $client_id
-		 * @param mixed $currency
-		 * @param mixed $discount
-		 * @param mixed $issued_at
-		 * @param mixed $subject
-		 * @param mixed $notes
-		 * @param mixed $number
-		 * @param mixed $kind
-		 * @param mixed $projects_to_invoice
-		 * @param mixed $import_hours
-		 * @param mixed $import_expenses
-		 * @param mixed $expense_summary_type
-		 * @param mixed $period_start
-		 * @param mixed $period_end
-		 * @param mixed $expense_period_start
-		 * @param mixed $expense_period_end
-		 * @param mixed $csv_line_items
-		 * @param mixed $tax
-		 * @param mixed $tax2
-		 * @param mixed $purchase_order
+		 * @param mixed $due_at_human_format Due at Human Format.
+		 * @param mixed $client_id Client ID.
+		 * @param mixed $currency Currency.
+		 * @param mixed $discount Discount.
+		 * @param mixed $issued_at Issued At.
+		 * @param mixed $subject Subject.
+		 * @param mixed $notes Notes.
+		 * @param mixed $number Number.
+		 * @param mixed $kind Kind.
+		 * @param mixed $projects_to_invoice Projects to Invoice.
+		 * @param mixed $import_hours Import Hours.
+		 * @param mixed $import_expenses Import Expenses.
+		 * @param mixed $expense_summary_type Expense Summary Type.
+		 * @param mixed $period_start Period Start.
+		 * @param mixed $period_end Period End.
+		 * @param mixed $expense_period_start Expense Period Start.
+		 * @param mixed $expense_period_end Expense Period End.
+		 * @param mixed $csv_line_items CSV Line Items.
+		 * @param mixed $tax Tax.
+		 * @param mixed $tax2 Tax 2.
+		 * @param mixed $purchase_order Purchase Order.
 		 * @return void
 		 */
 		public function add_invoice( $due_at_human_format, $client_id, $currency, $discount, $issued_at, $subject, $notes, $number, $kind, $projects_to_invoice, $import_hours, $import_expenses, $expense_summary_type, $period_start, $period_end, $expense_period_start, $expense_period_end, $csv_line_items, $tax, $tax2, $purchase_order ) {
