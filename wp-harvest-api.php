@@ -422,28 +422,26 @@ if ( ! class_exists( 'HarvestAPI' ) ) {
 
 		/* TIMESHEETS. */
 
-
-
 		/**
-		 * add_time_entry function.
+		 * Add Time Entry.
 		 *
 		 * @access public
-		 * @param mixed $hours
-		 * @param mixed $notes
-		 * @param mixed $project_id
-		 * @param mixed $task_id
-		 * @param mixed $spent_at
-		 * @param mixed $client_id
-		 * @param mixed $user_id
-		 * @param mixed $is_billed
-		 * @param mixed $is_closed
-		 * @param mixed $timer_started_at
-		 * @param mixed $hours_with_timer
-		 * @param mixed $hours_without_timer
-		 * @param mixed $started_at
-		 * @param mixed $ended_at
-		 * @param mixed $updated_at
-		 * @param $created_at $of_user
+		 * @param mixed $hours Hours.
+		 * @param mixed $notes Notes.
+		 * @param mixed $project_id Project ID.
+		 * @param mixed $task_id Task ID.
+		 * @param mixed $spent_at Spent At.
+		 * @param mixed $client_id Client ID.
+		 * @param mixed $user_id User ID.
+		 * @param mixed $is_billed Is Billed.
+		 * @param mixed $is_closed Is closed.
+		 * @param mixed $timer_started_at Timer Started At.
+		 * @param mixed $hours_with_timer Hours with Timer.
+		 * @param mixed $hours_without_timer Hours without Timer.
+		 * @param mixed $started_at Started At.
+		 * @param mixed $ended_at Ended At.
+		 * @param mixed $updated_at Updated At.
+		 * @param $created_at $of_user Of User.
 		 * @return void
 		 */
 		public function add_time_entry( $project_id, $task_id , $hours = null, $notes, $spent_at, $started_at = null, $ended_at = null, $client_id = null, $user_id = null, $is_billed = null, $is_closed = null, $timer_started_at = null, $hours_with_timer = null, $hours_without_timer = null, $updated_at = null, $of_user = null  ) {
@@ -454,11 +452,11 @@ if ( ! class_exists( 'HarvestAPI' ) ) {
 		}
 
 		/**
-		 * toggle_timer function.
+		 * Toggle Timer.
 		 *
 		 * @access public
-		 * @param mixed $day_entry_id
-		 * @param mixed $of_user
+		 * @param mixed $day_entry_id Day Entry ID.
+		 * @param mixed $of_user Of User.
 		 * @return void
 		 */
 		public function toggle_timer( $day_entry_id, $of_user ) {
@@ -466,11 +464,11 @@ if ( ! class_exists( 'HarvestAPI' ) ) {
 		}
 
 		/**
-		 * delete_time_entry function.
+		 * Delete Time Entry.
 		 *
 		 * @access public
-		 * @param mixed $day_entry_id
-		 * @param mixed $of_user
+		 * @param mixed $day_entry_id Day Entry ID.
+		 * @param mixed $of_user Of User.
 		 * @return void
 		 */
 		public function delete_time_entry( $day_entry_id, $of_user ) {
@@ -478,11 +476,11 @@ if ( ! class_exists( 'HarvestAPI' ) ) {
 		}
 
 		/**
-		 * update_time_entry function.
+		 * Update Time Entry.
 		 *
 		 * @access public
-		 * @param mixed $day_entry_id
-		 * @param mixed $of_user
+		 * @param mixed $day_entry_id Day Entry ID.
+		 * @param mixed $of_user Of User.
 		 * @return void
 		 */
 		public function update_time_entry( $day_entry_id, $of_user ) {
@@ -504,7 +502,7 @@ if ( ! class_exists( 'HarvestAPI' ) ) {
 		}
 
 		/**
-		 * Get a Project
+		 * Get a Project.
 		 *
 		 * @access public
 		 * @param mixed $project_id Project ID.
@@ -516,13 +514,13 @@ if ( ! class_exists( 'HarvestAPI' ) ) {
 		}
 
 		/**
-		 * create_project function.
+		 * Create Project.
 		 *
 		 * @access public
-		 * @param mixed $name
-		 * @param mixed $active
-		 * @param mixed $bill_by
-		 * @param mixed $client_id
+		 * @param mixed $name Name.
+		 * @param mixed $active Active.
+		 * @param mixed $bill_by Bill By.
+		 * @param mixed $client_id Client ID.
 		 * @return void
 		 */
 		public function create_project( $name, $active, $bill_by, $client_id ) {
@@ -531,10 +529,10 @@ if ( ! class_exists( 'HarvestAPI' ) ) {
 		}
 
 		/**
-		 * update_project function.
+		 * Update Project.
 		 *
 		 * @access public
-		 * @param mixed $project_id
+		 * @param mixed $project_id Project ID.
 		 * @return void
 		 */
 		public function update_project( $project_id ) {
@@ -543,10 +541,10 @@ if ( ! class_exists( 'HarvestAPI' ) ) {
 		}
 
 		/**
-		 * toggle_project function.
+		 * Toggle Project.
 		 *
 		 * @access public
-		 * @param mixed $project_id
+		 * @param mixed $project_id Project ID.
 		 * @return void
 		 */
 		public function toggle_project( $project_id ) {
@@ -555,10 +553,10 @@ if ( ! class_exists( 'HarvestAPI' ) ) {
 		}
 
 		/**
-		 * delete_project function.
+		 * Delete Project.
 		 *
 		 * @access public
-		 * @param mixed $project_id
+		 * @param mixed $project_id Project ID.
 		 * @return void
 		 */
 		public function delete_project( $project_id ) {
@@ -569,12 +567,12 @@ if ( ! class_exists( 'HarvestAPI' ) ) {
 		/* REPORTS. */
 
 		/**
-		 * get_entries_for_project_timeframe function.
+		 * Get Entries for project timeline.
 		 *
 		 * @access public
-		 * @param mixed $project_id
-		 * @param mixed $tf_start_date
-		 * @param mixed $tf_end_date
+		 * @param mixed $project_id Project ID.
+		 * @param mixed $tf_start_date Time Frame Start Date.
+		 * @param mixed $tf_end_date Time Frame End Date.
 		 * @return void
 		 */
 		public function get_entries_for_project_timeframe( $project_id, $tf_start_date, $tf_end_date ) {
@@ -583,15 +581,15 @@ if ( ! class_exists( 'HarvestAPI' ) ) {
 
 
 		/**
-		 * get_entries_by_user_for_timeframe function.
+		 * Get Entries by user for Timeline.
 		 *
 		 * @access public
-		 * @param mixed $user_id
-		 * @param mixed $billable
-		 * @param mixed $only_billed
-		 * @param mixed $only_unbilled
-		 * @param mixed $is_closed
-		 * @param mixed $updated_since
+		 * @param mixed $user_id User ID.
+		 * @param mixed $billable Billable.
+		 * @param mixed $only_billed Only Billed.
+		 * @param mixed $only_unbilled Only Unbilled.
+		 * @param mixed $is_closed Is Closed.
+		 * @param mixed $updated_since Updated Since.
 		 * @return void
 		 */
 		public function get_entries_by_user_for_timeframe( $user_id, $billable, $only_billed, $only_unbilled, $is_closed, $updated_since ) {
@@ -604,7 +602,7 @@ if ( ! class_exists( 'HarvestAPI' ) ) {
 		 * Get all Tasks.
 		 *
 		 * @access public
-		 * @param string $updated_since (default: '')
+		 * @param string $updated_since (default: '') Updated Since.
 		 * @return void
 		 */
 		public function get_all_tasks( $updated_since = '' ) {
