@@ -62,6 +62,10 @@ if ( ! class_exists( 'HarvestAPI' ) ) {
 		 * __construct function.
 		 *
 		 * @access public
+		 * @param mixed $account Account.
+		 * @param mixed $email Email.
+		 * @param mixed $password Password.
+		 * @param string $output (default: 'json') Output.
 		 * @return void
 		 */
 		public function __construct(  $account, $email, $password, $output = 'json' ) {
