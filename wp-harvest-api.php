@@ -1,8 +1,8 @@
 <?php
 /**
- * WP Harvest API (http://help.getharvest.com/api/)
- *
- * @package WP-Harvest-API
+ * WP Harvest API
+ * @link http://help.getharvest.com/api/ API Docs
+ * @package WP-API-Libraries\WP-Harvest-API
  */
 /*
 * Plugin Name: WP Harvest API
@@ -23,6 +23,8 @@ if ( ! class_exists( 'HarvestAPI' ) ) {
 
 	/**
 	 * Harvest API Class.
+	 *
+   * @link http://help.getharvest.com/api/ API Docs
 	 */
 	class HarvestAPI {
 
