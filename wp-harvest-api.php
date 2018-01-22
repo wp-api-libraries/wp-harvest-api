@@ -1,7 +1,20 @@
 <?php
 /**
- * WP Harvest API file.
- * @var [type]
+ * WP Harvest API.
+ * @link https://help.getharvest.com/api-v2/ API Docs
+ * @package WP-API-Libraries\WP-Harvest-API
+ */
+
+ /*
+ * Plugin Name: WP Harvest API
+ * Plugin URI: https://github.com/wp-api-libraries/wp-harvest-api
+ * Description: Perform API requests to Harvest in WordPress.
+ * Author: WP API Libraries
+ * Version: 2.0.0
+ * Author URI: https://wp-api-libraries.com
+ * GitHub Plugin URI: https://github.com/wp-api-libraries/wp-harvest-api
+ * GitHub Branch: master
+ * Text Domain: wp-harvest-api
  */
 
 if( ! defined( 'ABSPATH' ) ){
