@@ -62,8 +62,6 @@ if ( ! class_exists( 'HarvestAPI' ) ) {
 		 */
 		public function __construct(  $account, $email, $password, $output = 'json' ) {
 
-      pp( $password, $email );
-
 			static::$account = $account;
 			static::$output = $account;
 			$this->base_uri = 'https://'.$account . '.harvestapp.com';
