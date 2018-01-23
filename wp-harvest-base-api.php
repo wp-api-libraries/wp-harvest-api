@@ -34,15 +34,20 @@ if ( ! class_exists( 'WpHarvestBase' ) ) {
 			$this->args['method'] = $method;
 			// Sets route.
 			$this->route = $route;
+
+      // Merge bodies.
+      if( isset( $this->args['body'] ) ){
+        $body = array_merge( $this->args['body'], $body );
+      }
 			// If method is get, then there is no body.
 			if ( 'GET' === $method ) {
-				$this->route = add_query_arg( array_filter( array_merge( $this->args['body'], $body ) ), $route );
+				$this->route = add_query_arg( array_filter( $body ), $route );
 			} // Otherwise, if the content type is application/json, then the body needs to be json_encoded
 			elseif ( 'application/json' === $this->args['headers']['Content-Type'] ) {
-				$this->args['body'] = wp_json_encode( array_merge( $this->args['body'], $body ) );
-			} // Anything else, let the user take care of it.
+				$this->args['body'] = wp_json_encode( $body );
+			} // Anything else, let the user take care of it. TODO: add support for other content-types.
 			else {
-				$this->args['body'] = array_merge( $this->args['body'], $body );
+				$this->args['body'] = $body;
 			}
 			return $this;
 		}
