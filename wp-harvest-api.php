@@ -888,7 +888,7 @@ o888o        d888b    `Y8bod8P'     888 `Y8bod8P' `Y8bod8P'   "888" 8""888P'
    * @param  array   $args        Additional arguments as specific above.
    * @return object               The newly created project.
    */
-  public function create_project( $client_id, $name, $is_billable, $bill_by, $budget_by, $args = array() ){
+  public function create_project( $client_id, $name, $is_billable = false, $bill_by = 'none', $budget_by = 'none', $args = array() ){
     $args = $this->parse_args(array(
       'client_id'   => $client_id,
       'name'        => $name,
