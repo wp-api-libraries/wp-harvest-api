@@ -831,7 +831,7 @@ o888o        d888b    `Y8bod8P'     888 `Y8bod8P' `Y8bod8P'   "888" 8""888P'
    *                                the client with the given ID.
    * @return [type]                 [description]
    */
-  public function list_projects( $is_active = null, $client_id = null ){
+  public function list_projects( $client_id = null, $is_active = null ){
     $args = $this->parse_args(array(
       'is_active'     => $is_active,
       'client_id'     => $client_id
