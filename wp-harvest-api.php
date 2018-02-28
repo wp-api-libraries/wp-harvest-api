@@ -738,7 +738,7 @@ ooooooooooooo  o8o                                       oooo                   
     $args = $this->parse_args(array(
       'project_id' => $project_id,
       'task_id'    => $task_id,
-      'spent_date' => $spend_date
+      'spent_date' => $spent_date
     ), $args );
 
     return $this->run( 'time_entries', $args, 'POST' );
