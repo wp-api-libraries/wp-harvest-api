@@ -1113,6 +1113,7 @@ o888o        d888b    `Y8bod8P'     888 `Y8bod8P' `Y8bod8P'   "888"          o88
     * @return object             THe newly created task assignment
     */
    public function create_task_assignment( $project_id, $task_id, $args = array() ){
+     $args['task_id'] = $task_id;
      return $this->run( "projects/$project_id/task_assignments", $args, 'POST' );
    }
 
