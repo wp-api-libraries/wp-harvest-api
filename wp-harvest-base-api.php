@@ -63,7 +63,7 @@ if ( ! class_exists( 'WpHarvestBase' ) ) {
 			$this->clear();
 
 			if ( ! $this->is_status_ok( $code ) && ! $this->is_debug ) {
-				return new WP_Error( 'response-error', sprintf( __( 'Status: &d', 'wp-postmark-api' ), $code ), $body );
+				return new WP_Error( 'response-error', sprintf( __( 'Status: %d', 'wp-postmark-api' ), $code ), $body );
 			}
 			return $body;
 		}
