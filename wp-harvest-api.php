@@ -83,10 +83,10 @@ o88o     o8888o o888o        o888o      8""88888P'  o888ooooood8     o888o      
    */
   protected function set_headers() {
     $this->args['headers'] = array(
-      'Authorization' => 'Bearer ' . $this->access_token,
+      'Authorization'      => 'Bearer ' . $this->access_token,
       'Harvest-Account-Id' => $this->account_id,
-      'User-Agent' => $this->application . ' (' . $this->user_agent . ')',
-      'Content-Type' => 'application/json'
+      'User-Agent'         => $this->application . ' (' . $this->user_agent . ')',
+      'Content-Type'       => 'application/json'
     );
   }
 
