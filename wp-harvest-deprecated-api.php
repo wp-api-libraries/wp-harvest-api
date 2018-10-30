@@ -1,6 +1,7 @@
 <?php
 /**
  * WP Harvest API
+ *
  * @link http://help.getharvest.com/api/ API Docs
  * @package WP-API-Libraries\WP-Harvest-API
  */
@@ -14,7 +15,7 @@ if ( ! class_exists( 'HarvestAPI' ) ) {
 	/**
 	 * Harvest API Class.
 	 *
-   * @link http://help.getharvest.com/api/ API Docs
+	 * @link http://help.getharvest.com/api/ API Docs
 	 */
 	class HarvestAPI {
 
@@ -54,24 +55,24 @@ if ( ! class_exists( 'HarvestAPI' ) ) {
 		 * __construct function.
 		 *
 		 * @access public
-		 * @param mixed $account Account.
-		 * @param mixed $email Email.
-		 * @param mixed $password Password.
+		 * @param mixed  $account Account.
+		 * @param mixed  $email Email.
+		 * @param mixed  $password Password.
 		 * @param string $output (default: 'json') Output.
 		 * @return void
 		 */
-		public function __construct(  $account, $email, $password, $output = 'json' ) {
+		public function __construct( $account, $email, $password, $output = 'json' ) {
 
 			static::$account = $account;
 			static::$output = $account;
-			$this->base_uri = 'https://'.$account . '.harvestapp.com';
+			$this->base_uri = 'https://' . $account . '.harvestapp.com';
 
-			$secret_key = base64_encode($email.':'.$password);
+			$secret_key = base64_encode( $email . ':' . $password );
 
 			$this->args['headers'] = array(
 				'Content-Type'  => 'application/json',
 				'Accept'        => 'application/json',
-				'Authorization' => 'Basic '.$secret_key,
+				'Authorization' => 'Basic ' . $secret_key,
 			);
 		}
 
@@ -86,7 +87,7 @@ if ( ! class_exists( 'HarvestAPI' ) ) {
 
 			$response = wp_remote_request( $request, $this->args );
 
-			$code = wp_remote_retrieve_response_code($response );
+			$code = wp_remote_retrieve_response_code( $response );
 			if ( 200 !== $code ) {
 				return new WP_Error( 'response-error', sprintf( __( 'Server response code: %d', 'wp-harvest-api' ), $code ) );
 			}
@@ -129,7 +130,7 @@ if ( ! class_exists( 'HarvestAPI' ) ) {
 		 * @return void
 		 */
 		public function get_all_clients() {
-			$request = $this->base_uri . '/clients?output='. static::$output;
+			$request = $this->base_uri . '/clients?output=' . static::$output;
 			return $this->fetch( $request );
 		}
 
@@ -141,7 +142,7 @@ if ( ! class_exists( 'HarvestAPI' ) ) {
 		 * @return void
 		 */
 		public function get_client( $client_id ) {
-			$request = $this->base_uri . '/clients/'.$client_id.'?output='. static::$output;
+			$request = $this->base_uri . '/clients/' . $client_id . '?output=' . static::$output;
 			return $this->fetch( $request );
 		}
 
@@ -159,7 +160,7 @@ if ( ! class_exists( 'HarvestAPI' ) ) {
 		 */
 		public function create_client( $name, $currency, $curreny_symbol, $active, $details, $highrise_id ) {
 
-  		$request = $this->base_uri . '/clients?name='. $name .'&active='.$active.'&currency='.$currency.'&currency_symbol='.$curreny_symbol.'&detail='.$details.'&highrise_id='.$highrise_id .'output='. static::$output;
+			$request = $this->base_uri . '/clients?name=' . $name . '&active=' . $active . '&currency=' . $currency . '&currency_symbol=' . $curreny_symbol . '&detail=' . $details . '&highrise_id=' . $highrise_id . 'output=' . static::$output;
 			return $this->fetch( $request );
 		}
 
@@ -177,7 +178,7 @@ if ( ! class_exists( 'HarvestAPI' ) ) {
 		 */
 		public function update_client( $name, $currency, $curreny_symbol, $active, $details, $highrise_id ) {
 
-  		$request = $this->base_uri . '/clients?name='. $name .'&active='.$active.'&currency='.$currency.'&currency_symbol='.$curreny_symbol.'&detail='.$details.'&highrise_id='.$highrise_id .'output='. static::$output;
+			$request = $this->base_uri . '/clients?name=' . $name . '&active=' . $active . '&currency=' . $currency . '&currency_symbol=' . $curreny_symbol . '&detail=' . $details . '&highrise_id=' . $highrise_id . 'output=' . static::$output;
 			return $this->fetch( $request );
 
 		}
@@ -191,7 +192,7 @@ if ( ! class_exists( 'HarvestAPI' ) ) {
 		 */
 		public function toggle_client( $client_id ) {
 
-  		$request = $this->base_uri . '/clients/'.$client_id.'/toggle?output='. static::$output;
+			$request = $this->base_uri . '/clients/' . $client_id . '/toggle?output=' . static::$output;
 			return $this->fetch( $request );
 
 		}
@@ -204,7 +205,7 @@ if ( ! class_exists( 'HarvestAPI' ) ) {
 		 * @return void
 		 */
 		public function delete_client( $client_id ) {
-  			$request = $this->base_uri . '/clients/'.$client_id.'?output='. static::$output;
+			  $request = $this->base_uri . '/clients/' . $client_id . '?output=' . static::$output;
 			return $this->fetch( $request );
 		}
 
@@ -217,7 +218,7 @@ if ( ! class_exists( 'HarvestAPI' ) ) {
 		 */
 		public function get_all_contacts( $updated_since = '' ) {
 
-  		$request = $this->base_uri . '/contacts?output='. static::$output;
+			$request = $this->base_uri . '/contacts?output=' . static::$output;
 			return $this->fetch( $request );
 		}
 
@@ -225,13 +226,13 @@ if ( ! class_exists( 'HarvestAPI' ) ) {
 		 * Get All Contacts For A Client.
 		 *
 		 * @access public
-		 * @param mixed $client_id Client ID.
+		 * @param mixed  $client_id Client ID.
 		 * @param string $updated_since (default: '') Updated Since.
 		 * @return void
 		 */
 		public function get_all_client_contacts( $client_id, $updated_since = '' ) {
 
-  			$request = $this->base_uri . '/clients/contacts?output='. static::$output;
+			  $request = $this->base_uri . '/clients/contacts?output=' . static::$output;
 			return $this->fetch( $request );
 		}
 
@@ -244,7 +245,7 @@ if ( ! class_exists( 'HarvestAPI' ) ) {
 		 */
 		public function get_client_contact( $contact_id ) {
 
-  		$request = $this->base_uri . '/contacts/'.$contact_id.'?output='. static::$output;
+			$request = $this->base_uri . '/contacts/' . $contact_id . '?output=' . static::$output;
 			return $this->fetch( $request );
 
 		}
@@ -260,7 +261,7 @@ if ( ! class_exists( 'HarvestAPI' ) ) {
 		 */
 		public function add_contact( $client_id, $first_name, $last_name ) {
 
-  		$request = $this->base_uri . '/contacts/'.$contact_id.'?output='. static::$output;
+			$request = $this->base_uri . '/contacts/' . $contact_id . '?output=' . static::$output;
 			return $this->fetch( $request );
 
 		}
@@ -276,7 +277,7 @@ if ( ! class_exists( 'HarvestAPI' ) ) {
 		 */
 		public function update_contact( $client_id, $first_name, $last_name ) {
 
-    $request = $this->base_uri . '/contacts/'.$contact_id.'?output='. static::$output;
+			$request = $this->base_uri . '/contacts/' . $contact_id . '?output=' . static::$output;
 			return $this->fetch( $request );
 
 		}
@@ -290,7 +291,7 @@ if ( ! class_exists( 'HarvestAPI' ) ) {
 		 */
 		public function delete_contact( $contact_id ) {
 
-  		$request = $this->base_uri . '/contacts/'.$contact_id.'?output='. static::$output;
+			$request = $this->base_uri . '/contacts/' . $contact_id . '?output=' . static::$output;
 			return $this->fetch( $request );
 
 		}
@@ -326,7 +327,7 @@ if ( ! class_exists( 'HarvestAPI' ) ) {
 		 */
 		public function add_invoice( $due_at_human_format, $client_id, $currency, $discount, $issued_at, $subject, $notes, $number, $kind, $projects_to_invoice, $import_hours, $import_expenses, $expense_summary_type, $period_start, $period_end, $expense_period_start, $expense_period_end, $csv_line_items, $tax, $tax2, $purchase_order ) {
 
-  		$request = $this->base_uri . '/invoices?output='. static::$output;
+			$request = $this->base_uri . '/invoices?output=' . static::$output;
 			return $this->fetch( $request );
 
 		}
@@ -337,12 +338,12 @@ if ( ! class_exists( 'HarvestAPI' ) ) {
 		 * Get Expense.
 		 *
 		 * @access public
-		 * @param mixed $expense_id Expense ID.
+		 * @param mixed  $expense_id Expense ID.
 		 * @param string $of_user (default: '') Of User.
 		 * @return void
 		 */
 		public function get_expense( $expense_id, $of_user = '' ) {
-  		$request = $this->base_uri . '/expenses?output='. static::$output;
+			$request = $this->base_uri . '/expenses?output=' . static::$output;
 			return $this->fetch( $request );
 		}
 
@@ -354,7 +355,7 @@ if ( ! class_exists( 'HarvestAPI' ) ) {
 		 * @return void
 		 */
 		public function delete_expense( $expense_id ) {
-  		$request = $this->base_uri . '/expenses/'.$expense_id.'?output='. static::$output;
+			$request = $this->base_uri . '/expenses/' . $expense_id . '?output=' . static::$output;
 			return $this->fetch( $request );
 		}
 
@@ -366,7 +367,7 @@ if ( ! class_exists( 'HarvestAPI' ) ) {
 		 * @return void
 		 */
 		public function attach_receipt_image_to_expense( $expense_id ) {
-      $request = $this->base_uri . '/expenses/'.$expense_id.'/receipt?output='. static::$output;
+			$request = $this->base_uri . '/expenses/' . $expense_id . '/receipt?output=' . static::$output;
 			return $this->fetch( $request );
 		}
 
@@ -378,7 +379,7 @@ if ( ! class_exists( 'HarvestAPI' ) ) {
 		 * @return void
 		 */
 		public function get_receipt_image_from_expense( $expense_id ) {
-      $request = $this->base_uri . '/expenses/'.$expense_id.'/receipt?output='. static::$output;
+			$request = $this->base_uri . '/expenses/' . $expense_id . '/receipt?output=' . static::$output;
 			return $this->fetch( $request );
 		}
 
@@ -422,27 +423,27 @@ if ( ! class_exists( 'HarvestAPI' ) ) {
 		 * Add Time Entry.
 		 *
 		 * @access public
-		 * @param mixed $hours Hours.
-		 * @param mixed $notes Notes.
-		 * @param mixed $project_id Project ID.
-		 * @param mixed $task_id Task ID.
-		 * @param mixed $spent_at Spent At.
-		 * @param mixed $client_id Client ID.
-		 * @param mixed $user_id User ID.
-		 * @param mixed $is_billed Is Billed.
-		 * @param mixed $is_closed Is closed.
-		 * @param mixed $timer_started_at Timer Started At.
-		 * @param mixed $hours_with_timer Hours with Timer.
-		 * @param mixed $hours_without_timer Hours without Timer.
-		 * @param mixed $started_at Started At.
-		 * @param mixed $ended_at Ended At.
-		 * @param mixed $updated_at Updated At.
+		 * @param mixed      $hours Hours.
+		 * @param mixed      $notes Notes.
+		 * @param mixed      $project_id Project ID.
+		 * @param mixed      $task_id Task ID.
+		 * @param mixed      $spent_at Spent At.
+		 * @param mixed      $client_id Client ID.
+		 * @param mixed      $user_id User ID.
+		 * @param mixed      $is_billed Is Billed.
+		 * @param mixed      $is_closed Is closed.
+		 * @param mixed      $timer_started_at Timer Started At.
+		 * @param mixed      $hours_with_timer Hours with Timer.
+		 * @param mixed      $hours_without_timer Hours without Timer.
+		 * @param mixed      $started_at Started At.
+		 * @param mixed      $ended_at Ended At.
+		 * @param mixed      $updated_at Updated At.
 		 * @param $created_at $of_user Of User.
 		 * @return void
 		 */
-		public function add_time_entry( $project_id, $task_id , $hours = null, $notes, $spent_at, $started_at = null, $ended_at = null, $client_id = null, $user_id = null, $is_billed = null, $is_closed = null, $timer_started_at = null, $hours_with_timer = null, $hours_without_timer = null, $updated_at = null, $of_user = null  ) {
+		public function add_time_entry( $project_id, $task_id, $hours = null, $notes, $spent_at, $started_at = null, $ended_at = null, $client_id = null, $user_id = null, $is_billed = null, $is_closed = null, $timer_started_at = null, $hours_with_timer = null, $hours_without_timer = null, $updated_at = null, $of_user = null  ) {
 
-			$request = $this->base_uri . '/daily/add?project_id=' . $project_id . '&task_id='. $task_id .'&hours='.$hours.'&notes='.$notes.'&spent_at='.$spent_at;
+			$request = $this->base_uri . '/daily/add?project_id=' . $project_id . '&task_id=' . $task_id . '&hours=' . $hours . '&notes=' . $notes . '&spent_at=' . $spent_at;
 
 			return $this->fetch( $request );
 		}
@@ -492,7 +493,7 @@ if ( ! class_exists( 'HarvestAPI' ) ) {
 		 * @return void
 		 */
 		public function get_projects( $client_id = '', $updated_since = '' ) {
-			$request = $this->base_uri . '/projects?client='.$client_id .'&updated_since='.$updated_since.'&output=' . static::$output;
+			$request = $this->base_uri . '/projects?client=' . $client_id . '&updated_since=' . $updated_since . '&output=' . static::$output;
 			return $this->fetch( $request );
 
 		}
@@ -520,7 +521,7 @@ if ( ! class_exists( 'HarvestAPI' ) ) {
 		 * @return void
 		 */
 		public function create_project( $name, $active, $bill_by, $client_id ) {
-  		 $request = $this->base_uri . '/projects?output='. static::$output;
+			$request = $this->base_uri . '/projects?output=' . static::$output;
 			return $this->fetch( $request );
 		}
 
@@ -532,7 +533,7 @@ if ( ! class_exists( 'HarvestAPI' ) ) {
 		 * @return void
 		 */
 		public function update_project( $project_id ) {
-  		$request = $this->base_uri . '/projects/'.$project_id.'?output='. static::$output;
+			$request = $this->base_uri . '/projects/' . $project_id . '?output=' . static::$output;
 			return $this->fetch( $request );
 		}
 
@@ -544,7 +545,7 @@ if ( ! class_exists( 'HarvestAPI' ) ) {
 		 * @return void
 		 */
 		public function toggle_project( $project_id ) {
-  		$request = $this->base_uri . '/projects/'.$project_id.'/toggle?output='. static::$output;
+			$request = $this->base_uri . '/projects/' . $project_id . '/toggle?output=' . static::$output;
 			return $this->fetch( $request );
 		}
 
@@ -556,7 +557,7 @@ if ( ! class_exists( 'HarvestAPI' ) ) {
 		 * @return void
 		 */
 		public function delete_project( $project_id ) {
-  		$request = $this->base_uri . '/projects/'.$project_id.'?output='. static::$output;
+			$request = $this->base_uri . '/projects/' . $project_id . '?output=' . static::$output;
 			return $this->fetch( $request );
 		}
 
@@ -602,7 +603,7 @@ if ( ! class_exists( 'HarvestAPI' ) ) {
 		 * @return void
 		 */
 		public function get_all_tasks( $updated_since = '' ) {
-      $request = $this->base_uri . '/tasks/?output='. static::$output;
+			$request = $this->base_uri . '/tasks/?output=' . static::$output;
 			return $this->fetch( $request );
 		}
 
@@ -614,7 +615,7 @@ if ( ! class_exists( 'HarvestAPI' ) ) {
 		 * @return void
 		 */
 		public function get_task( $task_id ) {
-      $request = $this->base_uri . '/tasks/'.$task_id.'?output='. static::$output;
+			$request = $this->base_uri . '/tasks/' . $task_id . '?output=' . static::$output;
 			return $this->fetch( $request );
 		}
 
@@ -625,7 +626,7 @@ if ( ! class_exists( 'HarvestAPI' ) ) {
 		 * @return void
 		 */
 		public function add_task() {
-      $request = $this->base_uri . '/tasks/?output='. static::$output;
+			$request = $this->base_uri . '/tasks/?output=' . static::$output;
 			return $this->fetch( $request );
 		}
 
@@ -637,7 +638,7 @@ if ( ! class_exists( 'HarvestAPI' ) ) {
 		 * @return void
 		 */
 		public function archive_delete_task( $task_id ) {
-      $request = $this->base_uri . '/tasks/'.$task_id.'?output='. static::$output;
+			$request = $this->base_uri . '/tasks/' . $task_id . '?output=' . static::$output;
 			return $this->fetch( $request );
 		}
 
@@ -649,7 +650,7 @@ if ( ! class_exists( 'HarvestAPI' ) ) {
 		 * @return void
 		 */
 		public function update_task( $task_id ) {
-      $request = $this->base_uri . '/tasks/'.$task_id.'?output='. static::$output;
+			$request = $this->base_uri . '/tasks/' . $task_id . '?output=' . static::$output;
 			return $this->fetch( $request );
 		}
 
@@ -662,7 +663,7 @@ if ( ! class_exists( 'HarvestAPI' ) ) {
 		 */
 		public function reactivate_task( $task_id ) {
 
-  		$request = $this->base_uri . '/tasks/'.$task_id.'/activate?output='. static::$output;
+			$request = $this->base_uri . '/tasks/' . $task_id . '/activate?output=' . static::$output;
 			return $this->fetch( $request );
 
 		}
@@ -676,7 +677,7 @@ if ( ! class_exists( 'HarvestAPI' ) ) {
 		 * @return void
 		 */
 		public function get_all_users() {
-      $request = $this->base_uri . '/people?output='. static::$output;
+			$request = $this->base_uri . '/people?output=' . static::$output;
 			return $this->fetch( $request );
 		}
 
@@ -684,23 +685,23 @@ if ( ! class_exists( 'HarvestAPI' ) ) {
 		 * Add User.
 		 *
 		 * @access public
-		 * @param mixed $email Email.
-		 * @param mixed $first_name First Name.
-		 * @param mixed $last_name Last Name.
+		 * @param mixed  $email Email.
+		 * @param mixed  $first_name First Name.
+		 * @param mixed  $last_name Last Name.
 		 * @param string $is_admin (default: '') Is Admin.
-		 * @param mixed $timezone TimeZone.
-		 * @param mixed $is_contractor Is Contractor.
-		 * @param mixed $telephone Telephone.
-		 * @param mixed $is_active Is Active.
-		 * @param mixed $has_access_to_all_future_projects Has access to all future Projects.
-		 * @param mixed $default_hourly_rate Default Hourly Rate.
-		 * @param mixed $department Department.
-		 * @param mixed $cost_rate Cost Rate.
+		 * @param mixed  $timezone TimeZone.
+		 * @param mixed  $is_contractor Is Contractor.
+		 * @param mixed  $telephone Telephone.
+		 * @param mixed  $is_active Is Active.
+		 * @param mixed  $has_access_to_all_future_projects Has access to all future Projects.
+		 * @param mixed  $default_hourly_rate Default Hourly Rate.
+		 * @param mixed  $department Department.
+		 * @param mixed  $cost_rate Cost Rate.
 		 * @return void
 		 */
 		public function add_user( $email, $first_name, $last_name, $is_admin = '', $timezone, $is_contractor, $telephone, $is_active, $has_access_to_all_future_projects, $default_hourly_rate, $department, $cost_rate ) {
 
-  		$request = $this->base_uri . '/people?output='. static::$output;
+			$request = $this->base_uri . '/people?output=' . static::$output;
 			return $this->fetch( $request );
 
 		}
@@ -709,23 +710,23 @@ if ( ! class_exists( 'HarvestAPI' ) ) {
 		 * Update User.
 		 *
 		 * @access public
-		 * @param mixed $email Email.
-		 * @param mixed $first_name First Name.
-		 * @param mixed $last_name Last Name.
+		 * @param mixed  $email Email.
+		 * @param mixed  $first_name First Name.
+		 * @param mixed  $last_name Last Name.
 		 * @param string $is_admin (default: '') Is Admin.
-		 * @param mixed $timezone TimeZone.
-		 * @param mixed $is_contractor Is Contractor.
-		 * @param mixed $telephone Telephone.
-		 * @param mixed $is_active Is Active.
-		 * @param mixed $has_access_to_all_future_projects Has access to all future Projects.
-		 * @param mixed $default_hourly_rate Default Hourly Rate.
-		 * @param mixed $department Department.
-		 * @param mixed $cost_rate Cost Rate.
+		 * @param mixed  $timezone TimeZone.
+		 * @param mixed  $is_contractor Is Contractor.
+		 * @param mixed  $telephone Telephone.
+		 * @param mixed  $is_active Is Active.
+		 * @param mixed  $has_access_to_all_future_projects Has access to all future Projects.
+		 * @param mixed  $default_hourly_rate Default Hourly Rate.
+		 * @param mixed  $department Department.
+		 * @param mixed  $cost_rate Cost Rate.
 		 * @return void
 		 */
 		public function update_user( $email, $first_name, $last_name, $is_admin = '', $timezone, $is_contractor, $telephone, $is_active, $has_access_to_all_future_projects, $default_hourly_rate, $department, $cost_rate ) {
 
-  		$request = $this->base_uri . '/people/'.$user_id.'?output='. static::$output;
+			$request = $this->base_uri . '/people/' . $user_id . '?output=' . static::$output;
 			return $this->fetch( $request );
 
 		}
@@ -740,7 +741,7 @@ if ( ! class_exists( 'HarvestAPI' ) ) {
 		 */
 		public function delete_user( $user_id ) {
 
-  		$request = $this->base_uri . '/people/'.$user_id.'?output='. static::$output;
+			$request = $this->base_uri . '/people/' . $user_id . '?output=' . static::$output;
 			return $this->fetch( $request );
 
 		}
@@ -754,7 +755,7 @@ if ( ! class_exists( 'HarvestAPI' ) ) {
 		 */
 		public function toggle_user( $user_id ) {
 
-  		$request = $this->base_uri . '/people/'.$user_id.'/toggle?output='. static::$output;
+			$request = $this->base_uri . '/people/' . $user_id . '/toggle?output=' . static::$output;
 			return $this->fetch( $request );
 
 		}
